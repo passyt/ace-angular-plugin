@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Demo</title>
+<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script id="angularScript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular.js"></script>
+<script type="text/javascript" src="http://ace.c9.io/build/src-min/ace.js"></script>
+<script type="text/javascript" src="../src/ace-angular-plugin.js"></script>
+<script>
+function mainController($scope) {
+	
+	$scope.demo = {
+		java_script:"public class HelloWorld{\n\tpublic static void main(String[] args){\n\t\tSystem.out.prinln(\"test\");\n\t}\n}",
+		groovy_script:"def test(){\n\tprint(\"test\");\n}",
+		properties_script: "property.a = value.a\nproperty.b = value.b"
+	}
+	
+}
+</script>
+<style type="text/css">
+	.fullScreen .fullScreen-editor{ 
+		height: auto!important;
+		width: auto!important;
+		border: 0;
+        margin: 0;
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+		z-index: 10000;
+    }
+    
+    .fullScreen .fullScreen-bar{ 
+		height: auto!important;
+		width: auto!important;
+		border: 0;
+        margin: 0;
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+		z-index: 10000;
+    }
+	
+	.fullScreen {
+		overflow: hidden;
+		top: 0;
+	}
+	.fullScreen-editor{
+		top: 45px;
+	}
+	.fullScreen-bar{
+		top: 0;
+		overflow: hidden;
+	}
+</style>
+</head>
+<body ng-controller="mainController">
+	<div class="container-fluid">
+		<div ace="java" ng-model="demo.java_script">
+			<textarea placeholder="Java" rows="6" style="width:98%"></textarea>
+		</div>
+		
+		<div ace="groovy" ng-model="demo.groovy_script">
+			<textarea placeholder="Groovy" rows="6" style="width:98%"></textarea>
+		</div>
+		
+		<div ace="properties" ng-model="demo.properties_script">
+			<textarea placeholder="Properties" rows="6" style="width:98%"></textarea>
+		</div>
+	</div>
+</body>
+</html>
